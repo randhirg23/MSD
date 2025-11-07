@@ -27,9 +27,6 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get('/', (req, res) => {
-  res.json({ message: 'Car Rental API running', health: '/api/health' });
-});
 app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);
 app.use('/api/bookings', bookingRoutes);
@@ -38,6 +35,16 @@ app.use('/api/bookings', bookingRoutes);
 app.get('/api/health', (req, res) => {
   res.json({ message: 'Server is running', timestamp: new Date().toISOString() });
 });
+
+// In production, serve frontend build
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(__dirname, '..', 'frontend', 'dist');
+  app.use(express.static(distPath));
+  // Serve SPA index.html for non-API routes
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
