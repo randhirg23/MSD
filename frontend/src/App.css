@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] body {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+[data-theme="dark"] .car-list {
+  background: #1a1a1a;
+}
+
+[data-theme="dark"] .car-card {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+
+[data-theme="dark"] .car-info h3 {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .car-type {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+[data-theme="dark"] .feature-tag {
+  background: #4a5568;
+  color: #e0e0e0;
+  border-color: #4a5568;
+}
+
+[data-theme="dark"] .car-price {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .header {
+  background: #2d3748;
+  border-bottom-color: #4a5568;
+}
+
+[data-theme="dark"] .logo {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .user-name,
+[data-theme="dark"] .user-email {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #4a5568;
+  border-color: #4a5568;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: #667eea;
+  border-color: #667eea;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Loading and Error States */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.error {
+  background: #fee;
+  color: #c33;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid #fcc;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+}
