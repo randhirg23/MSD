@@ -23,10 +23,7 @@ const connectDB = async () => {
     console.log('🔗 Connecting to MongoDB...');
     console.log('📍 Connection string:', MONGODB_URI.replace(/\/\/.*@/, '//***:***@')); // Hide credentials in logs
     
-    await mongoose.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(MONGODB_URI);
     
     console.log('✅ MongoDB connected successfully');
     console.log('📊 Database:', mongoose.connection.name);
